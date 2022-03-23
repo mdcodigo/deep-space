@@ -33,4 +33,4 @@ jobs:
         version: 'v10'
         creds: ${{ secrets.AZURE_CREDENTIALS_VS_SUBS }}
         
-    - run: azcopy_v10 --source /home/runner/work/deep-space/deep-space/DeepSpace/target/deepspace.war --destination https://maduvageneral001.blob.core.windows.net/wars/deepspace.war #--recursive --set-content-type
+    - run: azcopy_v10 copy '/home/runner/work/deep-space/deep-space/DeepSpace/target/deepspace.war' 'https://maduvageneral001.blob.core.windows.net/wars/deepspace.war' #--recursive --set-content-type
