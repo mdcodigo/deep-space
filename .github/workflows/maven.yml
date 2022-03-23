@@ -27,3 +27,10 @@ jobs:
         
     - name: Build with Maven
       run: mvn -B package --file DeepSpace/pom.xml
+
+    - uses: kheiakiyama/install-azcopy-action@v1
+      with:
+        version: 'v10'
+        creds: ${{ secrets.AZURE_CREDENTIALS_VS_SUBS }}
+        
+    - run: azcopy_v10 --source /home/runner/work/deep-space/deep-space/DeepSpace/target/deepspace.war --destination https://maduvageneral001.blob.core.windows.net/wars/deepspace.war #--recursive --set-content-type
